@@ -2,6 +2,46 @@ package com.gildedrose;
 
 import java.util.List;
 
+public class GildedRoses {
+
+    public static void main(String[] args) {
+        // Створення кількох товарів
+        InventoryItem item1 = new InventoryItem("Regular Item", 10, 20);
+        InventoryItem item2 = new InventoryItem("Aged Brie", 5, 30);
+        InventoryItem item3 = new InventoryItem("Backstage passes to a TAFKAL80ETC concert", 15, 20);
+        InventoryItem item4 = new InventoryItem("Sulfuras, Hand of Ragnaros", 0, 80);
+
+        // Додавання товарів до списку
+        List<InventoryItem> items = List.of(item1, item2, item3, item4);
+        GildedRose gildedRose = new GildedRose(items);
+
+        // Виведення початкового стану товарів
+        System.out.println("Initial state:");
+        items.forEach(item -> System.out.println(item));
+
+        // Оновлення стану товарів на 1 день
+        gildedRose.updateQuality();
+
+        // Виведення стану товарів після 1-го оновлення
+        System.out.println("\nState after 1 day:");
+        items.forEach(item -> System.out.println(item));
+
+        // Оновлення стану товарів на ще 1 день
+        gildedRose.updateQuality();
+
+        // Виведення стану товарів після 2-го оновлення
+        System.out.println("\nState after 2 days:");
+        items.forEach(item -> System.out.println(item));
+
+        // Оновлення стану товарів на ще 1 день
+        gildedRose.updateQuality();
+
+        // Виведення стану товарів після 3-го оновлення
+        System.out.println("\nState after 3 days:");
+        items.forEach(item -> System.out.println(item));
+    }
+}
+
 class GildedRose {
     private final List<InventoryItem> items;
 
@@ -116,5 +156,14 @@ class InventoryItem {
 
     private boolean isBackstagePass() { //Метод перевіряє назву квитка
         return name.equals("Backstage passes to a TAFKAL80ETC concert");
+    }
+
+    @Override
+    public String toString() {
+        return "InventoryItem{" +
+                "name='" + name + '\'' +
+                ", sellIn=" + sellIn.getValue() +
+                ", quality=" + quality.getValue() +
+                '}';
     }
 }
