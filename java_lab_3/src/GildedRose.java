@@ -22,7 +22,21 @@ class Quality {
     }
 }
 
+class SellIn {
+    private int value;
 
+    public SellIn(int value) {
+        this.value = value;
+    }
+
+    public void decrease() {
+        value--;
+    }
+
+    public int getValue() {
+        return value;
+    }
+}
 
 class GildedRose {
     Item[] items;
