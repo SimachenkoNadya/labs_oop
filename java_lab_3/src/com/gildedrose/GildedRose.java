@@ -105,6 +105,7 @@ class InventoryItem {
 
 
 
+
     class GildedRose {
     Item[] items;
 
